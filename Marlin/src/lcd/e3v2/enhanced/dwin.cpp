@@ -1222,6 +1222,7 @@ void HMI_MainMenu() {
     switch (select_page.now) {
       case PAGE_PRINT:
         checkkey = SelectFile;
+        card.mount();
         Draw_Print_File_Menu();
         break;
 
