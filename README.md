@@ -20,7 +20,7 @@ To build Marlin 2.0 you'll need [Building Marlin with PlatformIO for ReArm](http
 
 Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Marlin_Ender3v2/releases).
 
-![](https://raw.githubusercontent.com/mriscoc/Marlin_Ender3v2/Ender3v2-Released/screenshots/thumbnail2.jpg)
+![](https://raw.githubusercontent.com/mriscoc/Marlin_Ender3v2/Ender3v2-Released/screenshots/main.jpg)
 
 ## Wiki
  - [How to install the firmware](https://github.com/mriscoc/Marlin_Ender3v2/wiki/How-to-install-the-firmware)
