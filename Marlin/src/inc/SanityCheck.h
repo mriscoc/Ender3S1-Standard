@@ -1577,6 +1577,9 @@ static_assert(Y_MAX_LENGTH >= Y_BED_SIZE, "Movement bounds (Y_MIN_POS, Y_MAX_POS
       #endif
     #endif
 
+    #if ENABLED(BLTOUCH_HS_MODE) && BLTOUCH_HS_MODE == 0
+      #error "BLTOUCH_HS_MODE must now be defined as true or false, indicating the default state."
+    #endif
     #if BLTOUCH_DELAY < 200
       #error "BLTOUCH_DELAY less than 200 is unsafe and is not supported."
     #endif
@@ -2270,8 +2273,8 @@ static_assert(Y_MAX_LENGTH >= Y_BED_SIZE, "Movement bounds (Y_MIN_POS, Y_MAX_POS
   #error "LASER_COOLANT_FLOW_METER requires FLOWMETER_PIN and LASER_FEATURE."
 #endif
 
-#if ENABLED(CHAMBER_FAN) && !(defined(CHAMBER_FAN_MODE) && WITHIN(CHAMBER_FAN_MODE, 0, 2))
-  #error "CHAMBER_FAN_MODE must be between 0 and 2."
+#if ENABLED(CHAMBER_FAN) && !(defined(CHAMBER_FAN_MODE) && WITHIN(CHAMBER_FAN_MODE, 0, 3))
+  #error "CHAMBER_FAN_MODE must be between 0 and 3."
 #endif
 
 #if ENABLED(CHAMBER_VENT)
@@ -3389,6 +3392,10 @@ static_assert(_PLUS_TEST(4), "HOMING_FEEDRATE_MM_M values must be positive.");
       #error "SKEW_CORRECTION requires YZ_SKEW_FACTOR or YZ_DIAG_AC, YZ_DIAG_BD, YZ_SIDE_AD."
     #endif
   #endif
+#endif
+
+#if BOTH(X_AXIS_TWIST_COMPENSATION, NOZZLE_AS_PROBE)
+  #error "X_AXIS_TWIST_COMPENSATION is incompatible with NOZZLE_AS_PROBE."
 #endif
 
 #if ENABLED(POWER_LOSS_RECOVERY)
