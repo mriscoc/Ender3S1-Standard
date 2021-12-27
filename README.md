@@ -54,3 +54,7 @@ Original Marlin is published under the [GPL license](/LICENSE). Some other libra
 THIS FIRMWARE AND ALL OTHER FILES IN THE DOWNLOAD ARE PROVIDED FREE OF CHARGE WITH NO WARRANTY OR GUARANTEE. SUPPORT IS NOT INCLUDED JUST BECAUSE YOU DOWNLOADED THE FIRMWARE.
 
 WE ARE NOT LIABLE FOR ANY DAMAGE TO YOUR PRINTER, PERSON, OR ANY OTHER PROPERTY DUE TO USE OF THIS FIRMWARE. IF YOU DO NOT AGREE TO THESE TERMS THEN DO NOT USE THE FIRMWARE.
+
+## Disclaimer
+
+Most of the features of this firmware are in the source files published in this repository. The binary file on the release page has very few features no published in the source code, those features are not ready for be integrated in to the official Marlin repository and publish them only could contribute to code fragmentation, that is the reason because you will find in the source code only the features already integrated into the bugfix fork of Marlin or in evaluation as submited as a pull request. Downloading or using the binaries you are agree to waive the right to access to the source code. If you are not agree with the above, please do not download or use the binaries in the release page.
