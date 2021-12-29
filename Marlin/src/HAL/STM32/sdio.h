@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2021 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -21,36 +21,9 @@
  */
 #pragma once
 
-/**
- * power.h - power control
- */
-
-#if ENABLED(AUTO_POWER_CONTROL)
-  #include "../core/millis_t.h"
-#endif
-
-class Power {
-  public:
-    static bool psu_on;
-
-    static void init();
-    static void power_on();
-    static void power_off();
-
-  #if ENABLED(AUTO_POWER_CONTROL) && POWER_OFF_DELAY > 0
-    static void power_off_soon();
-  #else
-    static void power_off_soon() { power_off(); }
-  #endif
-
-  #if ENABLED(AUTO_POWER_CONTROL)
-    static void check(const bool pause);
-
-    private:
-      static millis_t lastPowerOn;
-      static bool is_power_needed();
-
-  #endif
-};
-
-extern Power powerManager;
+#define SDIO_D0_PIN   PC8
+#define SDIO_D1_PIN   PC9
+#define SDIO_D2_PIN   PC10
+#define SDIO_D3_PIN   PC11
+#define SDIO_CK_PIN   PC12
+#define SDIO_CMD_PIN  PD2
