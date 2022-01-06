@@ -65,6 +65,10 @@
   #include "../../../module/probe.h"
 #endif
 
+#ifdef BLTOUCH_HS_MODE
+  #include "../../../feature/bltouch.h"
+#endif
+
 #if EITHER(BABYSTEP_ZPROBE_OFFSET, JUST_BABYSTEP)
   #include "../../../feature/babystep.h"
 #endif
@@ -1531,14 +1535,13 @@ void HMI_Popup() {
 
 void HMI_Init() {
   HMI_SDCardInit();
-
+  DWINUI::Draw_CenteredString(Color_White, 220, F("Professional Firmware "));
   for (uint16_t t = 0; t <= 100; t += 2) {
     DWINUI::Draw_Icon(ICON_Bar, 15, 260);
     DWIN_Draw_Rectangle(1, HMI_data.Background_Color, 15 + t * 242 / 100, 260, 257, 280);
     DWIN_UpdateLCD();
     delay(20);
   }
-
   HMI_SetLanguage();
 }
 
@@ -2396,6 +2399,14 @@ void SetPID(celsius_t t, heater_id_t h) {
   }
   void ProbeStow() { probe.stow(); }
   void ProbeDeploy() { probe.deploy(); }
+
+  #ifdef BLTOUCH_HS_MODE
+    void SetHSMode() {
+      bltouch.high_speed_mode = !bltouch.high_speed_mode;
+      Draw_Chkb_Line(CurrentMenu->line(), bltouch.high_speed_mode);
+      DWIN_UpdateLCD();
+    }
+  #endif
 #endif
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
@@ -2859,6 +2870,10 @@ void onDrawLanguage(MenuItemClass* menuitem, int8_t line) {
 
 #if ENABLED(SOUND_MENU_ITEM)
   void onDrawEnableSound(MenuItemClass* menuitem, int8_t line) { onDrawChkbMenu(menuitem, line, ui.buzzer_enabled); }
+#endif
+
+#ifdef BLTOUCH_HS_MODE
+  void onDrawHSMode(MenuItemClass* menuitem, int8_t line) { onDrawChkbMenu(menuitem, line, bltouch.high_speed_mode); }
 #endif
 
 void onDrawSelColorItem(MenuItemClass* menuitem, int8_t line) {
@@ -3453,11 +3468,14 @@ void Draw_Move_Menu() {
     if (CurrentMenu != ProbeSetMenu) {
       CurrentMenu = ProbeSetMenu;
       SetMenuTitle({0}, GET_TEXT_F(MSG_ZPROBE_SETTINGS)); // TODO: Chinese, English "Probe Settings" JPG
-      DWINUI::MenuItemsPrepare(7);
+      DWINUI::MenuItemsPrepare(8);
       ADDMENUITEM(ICON_Back, GET_TEXT_F(MSG_BUTTON_BACK), onDrawBack, Draw_AdvancedSettings_Menu);
       ADDMENUITEM_P(ICON_ProbeOffsetX, GET_TEXT_F(MSG_ZPROBE_XOFFSET), onDrawPFloatMenu, SetProbeOffsetX, &probe.offset.x);
       ADDMENUITEM_P(ICON_ProbeOffsetY, GET_TEXT_F(MSG_ZPROBE_YOFFSET), onDrawPFloatMenu, SetProbeOffsetY, &probe.offset.y);
       ADDMENUITEM_P(ICON_ProbeOffsetZ, GET_TEXT_F(MSG_ZPROBE_ZOFFSET), onDrawPFloat2Menu, SetProbeOffsetZ, &probe.offset.z);
+      #ifdef BLTOUCH_HS_MODE
+        ADDMENUITEM(ICON_HSMode, F("Enable HS mode"), onDrawHSMode, SetHSMode);
+      #endif
       ADDMENUITEM(ICON_ProbeTest, GET_TEXT_F(MSG_M48_TEST), onDrawMenuItem, ProbeTest);
       ADDMENUITEM(ICON_ProbeStow, GET_TEXT_F(MSG_MANUAL_STOW), onDrawMenuItem, ProbeStow);
       ADDMENUITEM(ICON_ProbeDeploy, GET_TEXT_F(MSG_MANUAL_DEPLOY), onDrawMenuItem, ProbeDeploy);
