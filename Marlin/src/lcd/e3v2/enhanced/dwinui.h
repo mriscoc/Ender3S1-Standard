@@ -64,7 +64,7 @@
 #define ICON_HomeOffsetZ          ICON_StepZ
 #define ICON_HSMode               ICON_StockConfiguration
 #define ICON_InvertE0             ICON_StepE
-#define ICON_LevBed               ICON_SetEndTemp
+#define ICON_Tram                 ICON_SetEndTemp
 #define ICON_Level                ICON_HotendTemp
 #define ICON_Lock                 ICON_Cool
 #define ICON_ManualMesh           ICON_HotendTemp
