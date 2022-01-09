@@ -1160,25 +1160,26 @@ void HMI_StartFrame(const bool with_update) {
 void Draw_Info_Menu() {
   DWINUI::ClearMenuArea();
   Draw_Back_First();
-
-  DWINUI::Draw_CenteredString(122, F(MACHINE_SIZE));
-  DWINUI::Draw_CenteredString(195, F(SHORT_BUILD_VERSION));
-
   if (HMI_IsChinese()) {
     Title.FrameCopy(30, 17, 28, 13);                        // "Info"
-
+  else {
+    Title.ShowCaption(GET_TEXT_F(MSG_INFO_SCREEN));
+  }
+  
+  if (HMI_IsChinese()) {
     DWIN_Frame_AreaCopy(1, 197, 149, 252, 161, 108, 102);   // "Size"
     DWIN_Frame_AreaCopy(1,   1, 164,  56, 176, 108, 175);   // "Firmware Version"
     DWIN_Frame_AreaCopy(1,  58, 164, 113, 176, 105, 248);   // "Contact Details"
+    DWINUI::Draw_CenteredString(268, F(CORP_WEBSITE));
   }
   else {
-    Title.ShowCaption(GET_TEXT_F(MSG_INFO_SCREEN));
-
-    DWIN_Frame_AreaCopy(1, 120, 150, 146, 161, 124, 102);   // "Size"
-    DWIN_Frame_AreaCopy(1, 146, 151, 254, 161,  82, 175);   // "Firmware Version"
-    DWIN_Frame_AreaCopy(1,   1, 164,  96, 175,  89, 248);   // "Contact details"
+    DWINUI::Draw_CenteredString(102, F("Size"));
+    DWINUI::Draw_CenteredString(175, F("Firmware version"));
+    DWINUI::Draw_CenteredString(248, F("Build Datetime"));
+    DWINUI::Draw_CenteredString(268, F(STRING_DISTRIBUTION_DATE " " STRING_DISTRIBUTION_TIME));
   }
-  DWINUI::Draw_CenteredString(268, F(CORP_WEBSITE));
+  DWINUI::Draw_CenteredString(122, F(MACHINE_SIZE));
+  DWINUI::Draw_CenteredString(195, F(SHORT_BUILD_VERSION));
 
   LOOP_L_N(i, 3) {
     DWINUI::Draw_Icon(ICON_PrintSize + i, ICOX, 99 + i * 73);
