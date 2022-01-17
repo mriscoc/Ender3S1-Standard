@@ -18,6 +18,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
+#include "../../../inc/MarlinConfigPre.h"
+
+#if ENABLED(DWIN_CREALITY_LCD_ENHANCED)
+
 #include "dwin.h"
 #include "dwin_popup.h"
 
@@ -44,3 +48,5 @@ void DWIN_Popup_ConfirmCancel(const uint8_t icon, FSTR_P const fmsg2) {
   Draw_Select_Highlight(true);
   DWIN_UpdateLCD();
 }
+
+#endif // DWIN_CREALITY_LCD_ENHANCED
