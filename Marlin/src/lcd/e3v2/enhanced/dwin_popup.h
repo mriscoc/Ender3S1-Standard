@@ -1,8 +1,8 @@
 /**
  * DWIN UI Enhanced implementation
  * Author: Miguel A. Risco-Castillo
- * Version: 3.8.1
- * Date: 2021/11/06
+ * Version: 3.9.1
+ * Date: 2022/01/17
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 
@@ -40,6 +40,12 @@ void DWIN_Draw_Popup(const uint8_t icon, T amsg1=nullptr, U amsg2=nullptr, uint8
   if (amsg1) DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 210, amsg1);
   if (amsg2) DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 240, amsg2);
   if (button) DWINUI::Draw_Icon(button, 86, 280);
+}
+
+template<typename T, typename U>
+void DWIN_Show_Popup(const uint8_t icon, T amsg1=nullptr, U amsg2=nullptr, uint8_t button=0) {
+  DWIN_Draw_Popup(icon, amsg1, amsg2, button);
+  DWIN_UpdateLCD();
 }
 
 template<typename T, typename U>

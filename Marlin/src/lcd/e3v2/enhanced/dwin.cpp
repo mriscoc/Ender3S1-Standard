@@ -2,7 +2,7 @@
  * Enhanced DWIN implementation
  * Author: Miguel A. Risco-Castillo (MRISCOC)
  * version: 3.10.2
- * date: 2021/12/28
+ * date: 2022/01/08
  *
  * Based on the original code provided by Creality
  *
@@ -949,8 +949,6 @@ void make_name_without_ext(char *dst, char *src, size_t maxlen=MENU_CHAR_LIMIT) 
 
 void HMI_SDCardInit() { card.cdroot(); }
 
-void MarlinUI::refresh() { /* Nothing to see here */ }
-
 #if HAS_LCD_BRIGHTNESS
   void MarlinUI::_set_brightness() { DWIN_LCD_Brightness(backlight ? brightness : 0); }
 #endif
@@ -1791,7 +1789,7 @@ void DWIN_MeshLevelingStart() {
   #if HAS_ONESTEP_LEVELING
     HMI_SaveProcessID(Leveling);
     Title.ShowCaption(GET_TEXT_F(MSG_BED_LEVELING));
-    DWIN_Draw_Popup(ICON_AutoLeveling, GET_TEXT_F(MSG_BED_LEVELING), GET_TEXT_F(MSG_PLEASE_WAIT));
+    DWIN_Show_Popup(ICON_AutoLeveling, GET_TEXT_F(MSG_BED_LEVELING), GET_TEXT_F(MSG_PLEASE_WAIT), ICON_Cancel_E);
   #elif ENABLED(MESH_BED_LEVELING)
     Draw_ManualMesh_Menu();
   #endif
@@ -1958,7 +1956,8 @@ void DWIN_LoadSettings(const char *buff) {
 }
 
 void MarlinUI::kill_screen(FSTR_P const lcd_error, FSTR_P const lcd_component) {
-  DWIN_Draw_Popup(ICON_BLTouch, lcd_error, lcd_component);
+  DWIN_Draw_Popup(ICON_BLTouch, F("Printer killed:"), lcd_error);
+  DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 270, F("Turn off the printer"));
   DWIN_UpdateLCD();
 }
 

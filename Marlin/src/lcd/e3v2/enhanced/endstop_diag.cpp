@@ -1,7 +1,7 @@
 /**
  * DWIN End Stops diagnostic page
  * Author: Miguel A. Risco-Castillo
- * Version: 1.0
+ * Version: 1.0.2
  * Date: 2021/11/06
  *
  * This program is free software: you can redistribute it and/or modify
@@ -98,4 +98,4 @@ void ESDiagClass::Update() {
   DWIN_UpdateLCD();
 }
 
-#endif // DWIN_CREALITY_LCD_ENHANCED && HAS_MESH
+#endif // DWIN_CREALITY_LCD_ENHANCED && HAS_ESDIAG
