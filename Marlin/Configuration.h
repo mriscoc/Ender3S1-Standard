@@ -22,7 +22,7 @@
 #pragma once
 
 // Created by configs generator for Professional firmware
-// https://github.com/mriscoc/Marlin_Ender3v2
+// https://github.com/mriscoc/Marlin_Ender3S1
 
 /**
  * Configuration.h
@@ -99,7 +99,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_CREALITY_V4  // Creality Board v4.2.2
+  #define MOTHERBOARD BOARD_CREALITY_V24S1_301  // Creality Ender 3S1
 #endif
 
 /**
@@ -110,7 +110,7 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 1  // Ender3v2 Configs
+#define SERIAL_PORT 1  // Ender3S1 Configs
 
 /**
  * Serial Port Baud Rate
@@ -146,7 +146,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Ender 3v2 422 ManualMesh"
+#define CUSTOM_MACHINE_NAME "Ender 3S1"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -502,7 +502,7 @@
 #define TEMP_SENSOR_5 0
 #define TEMP_SENSOR_6 0
 #define TEMP_SENSOR_7 0
-#define TEMP_SENSOR_BED 1  // Ender3v2 Configs
+#define TEMP_SENSOR_BED 1  // Ender3S1 Configs
 #define TEMP_SENSOR_PROBE 0
 #define TEMP_SENSOR_CHAMBER 0
 #define TEMP_SENSOR_COOLER 0
@@ -549,7 +549,7 @@
 
 // Below this temperature the heater will be switched off
 // because it probably indicates a broken thermistor wire.
-#define HEATER_0_MINTEMP   0  // Ender3v2 Configs
+#define HEATER_0_MINTEMP   0  // Ender3S1 Configs
 #define HEATER_1_MINTEMP   5
 #define HEATER_2_MINTEMP   5
 #define HEATER_3_MINTEMP   5
@@ -557,7 +557,7 @@
 #define HEATER_5_MINTEMP   5
 #define HEATER_6_MINTEMP   5
 #define HEATER_7_MINTEMP   5
-#define BED_MINTEMP        0  // Ender3v2 Configs
+#define BED_MINTEMP        0  // Ender3S1 Configs
 #define CHAMBER_MINTEMP    5
 
 // Above this temperature the heater will be switched off.
@@ -571,7 +571,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      120  // Ender3v2 Configs
+#define BED_MAXTEMP      120  // Ender3S1 Configs
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -608,9 +608,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.89  // MRiscoC Stock Ender3v2 PID
-    #define DEFAULT_Ki   1.87  // MRiscoC Stock Ender3v2 PID
-    #define DEFAULT_Kd  70.18  // MRiscoC Stock Ender3v2 PID
+    #define DEFAULT_Kp  22.89  // MRiscoC Stock Ender3S1 PID
+    #define DEFAULT_Ki   1.87  // MRiscoC Stock Ender3S1 PID
+    #define DEFAULT_Kd  70.18  // MRiscoC Stock Ender3S1 PID
   #endif
 #endif // PIDTEMP
 
@@ -631,7 +631,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-#define PIDTEMPBED  // Ender3v2 Configs
+#define PIDTEMPBED  // Ender3S1 Configs
 
 //#define BED_LIMIT_SWITCHING
 
@@ -649,9 +649,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 462.10  // MRiscoC Stock Ender3v2 PID
-  #define DEFAULT_bedKi  85.47  // MRiscoC Stock Ender3v2 PID
-  #define DEFAULT_bedKd 624.59  // MRiscoC Stock Ender3v2 PID
+  #define DEFAULT_bedKp 462.10  // MRiscoC Stock Ender3S1 PID
+  #define DEFAULT_bedKi  85.47  // MRiscoC Stock Ender3S1 PID
+  #define DEFAULT_bedKd 624.59  // MRiscoC Stock Ender3S1 PID
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -725,7 +725,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 1000  // Ender3v2 Configs
+#define EXTRUDE_MAXLENGTH 1000  // Ender3S1 Configs
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -746,7 +746,7 @@
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-//#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber  // Ender3v2 Configs
+//#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber  // Ender3S1 Configs
 #define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling
 
 //===========================================================================
@@ -837,8 +837,8 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define X_MIN_ENDSTOP_INVERTING true        // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
+#define Y_MIN_ENDSTOP_INVERTING true        // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
 #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -869,9 +869,9 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3v2 Configs
-#define Y_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3v2 Configs
-#define Z_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3v2 Configs
+#define X_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3S1 Configs
+#define Y_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3S1 Configs
+#define Z_DRIVER_TYPE  TMC2208_STANDALONE  // Ender3S1 Configs
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
@@ -880,7 +880,7 @@
 //#define I_DRIVER_TYPE  A4988
 //#define J_DRIVER_TYPE  A4988
 //#define K_DRIVER_TYPE  A4988
-#define E0_DRIVER_TYPE TMC2208_STANDALONE  // Ender3v2 Configs
+#define E0_DRIVER_TYPE TMC2208_STANDALONE  // Ender3S1 Configs
 //#define E1_DRIVER_TYPE A4988
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
@@ -891,7 +891,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-#define ENDSTOP_INTERRUPTS_FEATURE  // Ender3v2 Configs
+#define ENDSTOP_INTERRUPTS_FEATURE  // Ender3S1 Configs
 
 /**
  * Endstop Noise Threshold
@@ -935,7 +935,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }  // Ender3v2 Configs
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 430 }  // Ender3S1 Configs
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -970,9 +970,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves  // Ender3v2 Configs
-#define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts  // Ender3v2 Configs
-#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves  // Ender3v2 Configs
+#define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves  // Ender3S1 Configs
+#define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts  // Ender3S1 Configs
+#define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves  // Ender3S1 Configs
 
 /**
  * Default Jerk limits (mm/s)
@@ -982,7 +982,7 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-#define CLASSIC_JERK  // Ender3v2 Configs
+#define CLASSIC_JERK  // Ender3S1 Configs
 #if ENABLED(CLASSIC_JERK)
   #define DEFAULT_XJERK 10.0
   #define DEFAULT_YJERK 10.0
@@ -1041,7 +1041,7 @@
 #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING  // MRiscoC Manual mesh not have a probe
+//#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1072,7 +1072,7 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-#define PROBE_MANUALLY  // MRiscoC Manual mesh version
+//#define PROBE_MANUALLY
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
@@ -1095,7 +1095,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH    // Ender3S1 Configs
 
 /**
  * MagLev V4 probe by MDD
@@ -1198,7 +1198,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }  // MRiscoC Manual mesh use the nozzle as probe
+#define NOZZLE_TO_PROBE_OFFSET { -37, -39, -3 }  // BLTouch offset for Ender3S1
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1258,8 +1258,8 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
-//#define EXTRA_PROBING    1
+#define MULTIPLE_PROBING 2  // MRiscoC Enabled
+#define EXTRA_PROBING    1  // MRiscoC Enabled
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -1275,19 +1275,19 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-#define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
+#define Z_CLEARANCE_DEPLOY_PROBE   7 // Z Clearance for Deploy/Stow  // MRiscoC Increase speed
+#define Z_CLEARANCE_BETWEEN_PROBES  7 // Z Clearance between probe points  // MRiscoC Increase probe compatibility
+#define Z_CLEARANCE_MULTI_PROBE     7 // Z Clearance between multiple probes  // MRiscoC Increase probe compatibility
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
-#define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
+#define Z_PROBE_LOW_POINT          -4 // Farthest distance below the trigger-point to go before stopping  // MRiscoC allows reach lower points
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST  // MRiscoC Enable M48 repeatability test
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1307,10 +1307,10 @@
   //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
   //#define WAIT_FOR_HOTEND         // Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)
 #endif
-//#define PROBING_FANS_OFF          // Turn fans off when probing
+#define PROBING_FANS_OFF          // Turn fans off when probing  // MRiscoC Turn fans off for avoid vibrations and interference
 //#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
 //#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
-//#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
+#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors  // MRiscoC Wait for stability
 
 // Require minimum nozzle and/or bed temperature for probing
 //#define PREHEAT_BEFORE_PROBING
@@ -1350,8 +1350,8 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR false  // Ender3v2 Configs
-#define INVERT_Z_DIR true  // Ender3v2 Configs
+#define INVERT_Y_DIR false  // Ender3S1 Configs
+#define INVERT_Z_DIR true  // Ender3S1 Configs
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
 //#define INVERT_K_DIR false
@@ -1406,7 +1406,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 248  // MRiscoC Stock physical limit
 #define Y_MAX_POS 231  // MRiscoC Stock physical limit
-#define Z_MAX_POS 250  // Ender3v2 Configs
+#define Z_MAX_POS 250  // Ender3S1 Configs
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -1462,14 +1462,14 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-#define FILAMENT_RUNOUT_SENSOR  // MRiscoC Enabled runout sensor support
+#define FILAMENT_RUNOUT_SENSOR    // Ender3S1 Configs
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
-  #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
-  //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
+  #define FIL_RUNOUT_STATE     HIGH       // Pin state indicating that filament is NOT present.   // Ender3S1 Configs
+  //#define FIL_RUNOUT_PULLUP             // Use internal pullup for filament runout pins.        // Ender3S1 Configs
+  #define FIL_RUNOUT_PULLDOWN             // Use internal pulldown for filament runout pins.      // Ender3S1 Configs   
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
                                           // This is automatically enabled for MIXING_EXTRUDERs.
 
@@ -1564,9 +1564,9 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR  // MRiscoC BLTouch auto level
 //#define AUTO_BED_LEVELING_UBL
-#define MESH_BED_LEVELING  // MRiscoC Manual Mesh
+//#define MESH_BED_LEVELING
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable one of
@@ -1581,7 +1581,7 @@
  */
 #define PREHEAT_BEFORE_LEVELING  // MRiscoC Heatting to compensate thermal expansions
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 175   // (°C) Only applies to E0 at this time  // MRiscoC Preheat nozzle without oozing
+  #define LEVELING_NOZZLE_TEMP   0   // (°C) Only applies to E0 at this time  // MRiscoC No necessary for BLTouch
   #define LEVELING_BED_TEMP     50
 #endif
 
@@ -1765,7 +1765,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING  // MRiscoC Homing Z at center of bed
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
@@ -1850,12 +1850,12 @@
  *   M501 - Read settings from EEPROM. (i.e., Throw away unsaved changes)
  *   M502 - Revert settings to "factory" defaults. (Follow with M500 to init the EEPROM.)
  */
-#define EEPROM_SETTINGS     // Persistent storage with M500 and M501  // Ender3v2 Configs
+#define EEPROM_SETTINGS     // Persistent storage with M500 and M501  // Ender3S1 Configs
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
-  #define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.  // Ender3v2 Configs
+  #define EEPROM_AUTO_INIT  // Init EEPROM automatically on any errors.  // Ender3S1 Configs
   #define EEPROM_INIT_NOW   // Init EEPROM on first boot after a new build.  // MRiscoC Reset EEPROM on first boot
 #endif
 
@@ -2129,7 +2129,7 @@
  * SD Card support is disabled by default. If your controller has an SD slot,
  * you must uncomment the following option or it won't work.
  */
-#define SDSUPPORT  // Ender3v2 Configs
+#define SDSUPPORT  // Ender3S1 Configs
 
 /**
  * SD CARD: ENABLE CRC
@@ -2153,13 +2153,13 @@
 // This option overrides the default number of encoder pulses needed to
 // produce one step. Should be increased for high-resolution encoders.
 //
-#define ENCODER_PULSES_PER_STEP 4  // Ender3v2 Configs
+#define ENCODER_PULSES_PER_STEP 4  // Ender3S1 Configs
 
 //
 // Use this option to override the number of step signals required to
 // move between next/prev menu items.
 //
-#define ENCODER_STEPS_PER_MENU_ITEM 1  // Ender3v2 Configs
+#define ENCODER_STEPS_PER_MENU_ITEM 1  // Ender3S1 Configs
 
 /**
  * Encoder Direction Options
@@ -2217,8 +2217,8 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2  // Ender3v2 Configs
-#define LCD_FEEDBACK_FREQUENCY_HZ 5000  // Ender3v2 Configs
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 2  // Ender3S1 Configs
+#define LCD_FEEDBACK_FREQUENCY_HZ 5000  // Ender3S1 Configs
 
 //=============================================================================
 //======================== LCD / Controller Selection =========================
@@ -2868,7 +2868,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#define FAN_SOFT_PWM  // Ender3v2 Configs
+#define FAN_SOFT_PWM  // Ender3S1 Configs
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.

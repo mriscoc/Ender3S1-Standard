@@ -1,9 +1,9 @@
 # Professional Firmware for the Creality Ender 3 v2 3D Printer 
 
-![GitHub](https://img.shields.io/github/license/mriscoc/Marlin_Ender3v2.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/mriscoc/Marlin_Ender3v2.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/mriscoc/Marlin_Ender3v2.svg)
-[![Build Status](https://github.com/mriscoc/Marlin_Ender3v2/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/mriscoc/Marlin_Ender3v2/actions)
+![GitHub](https://img.shields.io/github/license/mriscoc/Marlin_Ender3S1.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/mriscoc/Marlin_Ender3S1.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/mriscoc/Marlin_Ender3S1.svg)
+[![Build Status](https://github.com/mriscoc/Marlin_Ender3S1/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/mriscoc/Marlin_Ender3S1/actions)
 
 <img align="right" width=200 src="buildroot/share/pixmaps/Ender-3V2.jpg" />
 
@@ -18,26 +18,26 @@ To build Marlin 2.0 you'll need [Building Marlin with PlatformIO for ReArm](http
 
 ## Download a compilated version of this firmware
 
-Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Marlin_Ender3v2/releases).
+Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Marlin_Ender3S1/releases).
 
-![](https://raw.githubusercontent.com/mriscoc/Marlin_Ender3v2/Ender3v2-Released/screenshots/main.jpg)
+![](https://raw.githubusercontent.com/mriscoc/Marlin_Ender3S1/Ender3S1-Released/screenshots/main.jpg)
 
 ## Wiki
- - [How to install the firmware](https://github.com/mriscoc/Marlin_Ender3v2/wiki/How-to-install-the-firmware)
- - [Installing a 3D/BLTouch](https://github.com/mriscoc/Marlin_Ender3v2/wiki/3D-BLTouch)
- - [Color themes](https://github.com/mriscoc/Marlin_Ender3v2/wiki/Color-Themes)
- - [How to use with Octoprint](https://github.com/mriscoc/Marlin_Ender3v2/wiki/Octoprint)
+ - [How to install the firmware](https://github.com/mriscoc/Marlin_Ender3S1/wiki/How-to-install-the-firmware)
+ - [Installing a 3D/BLTouch](https://github.com/mriscoc/Marlin_Ender3S1/wiki/3D-BLTouch)
+ - [Color themes](https://github.com/mriscoc/Marlin_Ender3S1/wiki/Color-Themes)
+ - [How to use with Octoprint](https://github.com/mriscoc/Marlin_Ender3S1/wiki/Octoprint)
   
 ## Community links
-* [Telegram](https://t.me/Ender3v2_Firmware)
-* [Reddit](https://www.reddit.com/r/Ender3v2Firmware) 
-* [Facebook](https://www.facebook.com/groups/ender3v2firmware)
+* [Telegram](https://t.me/Ender3S1_Firmware)
+* [Reddit](https://www.reddit.com/r/Ender3S1Firmware) 
+* [Facebook](https://www.facebook.com/groups/Ender3S1firmware)
 
 ## Credits
 
 This fork of Marlin firmware is maintained by Miguel Risco-Castillo [[@mriscoc](https://github.com/mriscoc)] - Peru  
 
-This work would not be possible without the supporters, helpers and betatesters at the [Telegram group](https://t.me/Ender3v2_Firmware).
+This work would not be possible without the supporters, helpers and betatesters at the [Telegram group](https://t.me/Ender3S1_Firmware).
 
 ### The current Marlin dev team consists of:
  - Scott Lahteine [[@thinkyhead](https://github.com/thinkyhead)] - USA

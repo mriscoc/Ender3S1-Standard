@@ -953,6 +953,8 @@ void HMI_SDCardInit() { card.cdroot(); }
   void MarlinUI::_set_brightness() { DWIN_LCD_Brightness(backlight ? brightness : 0); }
 #endif
 
+void MarlinUI::refresh() { /* Nothing to see here */ }
+
 #define ICON_Folder ICON_More
 
 #if ENABLED(SCROLL_LONG_FILENAMES)
