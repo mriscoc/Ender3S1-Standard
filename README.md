@@ -1,11 +1,11 @@
-# Professional Firmware for the Creality Ender 3 v2 3D Printer 
+# Professional Firmware for the Creality Ender 3 s1 3D Printer 
 
 ![GitHub](https://img.shields.io/github/license/mriscoc/Marlin_Ender3S1.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/mriscoc/Marlin_Ender3S1.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/mriscoc/Marlin_Ender3S1.svg)
 [![Build Status](https://github.com/mriscoc/Marlin_Ender3S1/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/mriscoc/Marlin_Ender3S1/actions)
 
-<img align="right" width=200 src="buildroot/share/pixmaps/Ender-3V2.jpg" />
+<img align="right" width=200 src="buildroot/share/pixmaps/Ender3s1.jpg" />
 
 Additional documentation can be found at the [Marlin Home Page](https://marlinfw.org/).
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
