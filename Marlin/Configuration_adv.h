@@ -489,9 +489,9 @@
  * Hotend Idle Timeout
  * Prevent filament in the nozzle from charring and causing a critical jam.
  */
-//#define HOTEND_IDLE_TIMEOUT
+#define HOTEND_IDLE_TIMEOUT  // MRiscoC Disable heaters after timeout
 #if ENABLED(HOTEND_IDLE_TIMEOUT)
-  #define HOTEND_IDLE_TIMEOUT_SEC (5*60)    // (seconds) Time without extruder movement to trigger protection
+  #define HOTEND_IDLE_TIMEOUT_SEC (10*60)    // (seconds) Time without extruder movement to trigger protection  // MRiscoC 10 minutes for heaters timeout
   #define HOTEND_IDLE_MIN_TRIGGER   180     // (°C) Minimum temperature to enable hotend protection
   #define HOTEND_IDLE_NOZZLE_TARGET   0     // (°C) Safe temperature for the nozzle after timeout
   #define HOTEND_IDLE_BED_TARGET      0     // (°C) Safe temperature for the bed after timeout
@@ -1085,7 +1085,7 @@
 // Backlash Compensation
 // Adds extra movement to axes on direction-changes to account for backlash.
 //
-//#define BACKLASH_COMPENSATION
+#define BACKLASH_COMPENSATION  // MRiscoC Enable
 #if ENABLED(BACKLASH_COMPENSATION)
   // Define values for backlash distance and correction.
   // If BACKLASH_GCODE is enabled these values are the defaults.
@@ -1100,7 +1100,7 @@
   //#define BACKLASH_SMOOTHING_MM 3 // (mm)
 
   // Add runtime configuration and tuning of backlash values (M425)
-  //#define BACKLASH_GCODE
+  #define BACKLASH_GCODE  // MRiscoC Enable
 
   #if ENABLED(BACKLASH_GCODE)
     // Measure the Z backlash when probing (G29) and set with "M425 Z"
@@ -1529,33 +1529,23 @@
   // LCD's font must contain the characters. Check your selected LCD language.
   //#define UTF_FILENAME_SUPPORT
 
-  // This allows hosts to request long names for files and folders with M33
-  #define LONG_FILENAME_HOST_SUPPORT  // MRiscoC Enabled
+  #define LONG_FILENAME_HOST_SUPPORT    // Get the long filename of a file/folder with 'M33 <dosname>' and list long filenames with 'M20 L'  // MRiscoC Enabled
+  #define LONG_FILENAME_WRITE_SUPPORT   // Create / delete files with long filenames via M28, M30, and Binary Transfer Protocol  // MRiscoC Enabled
 
-  // Enable this option to scroll long filenames in the SD card menu
-  #define SCROLL_LONG_FILENAMES  // MRiscoC Enabled
+  #define SCROLL_LONG_FILENAMES         // Scroll long filenames in the SD card menu  // MRiscoC Enabled
 
-  // Leave the heaters on after Stop Print (not recommended!)
-  //#define SD_ABORT_NO_COOLDOWN
+  //#define SD_ABORT_NO_COOLDOWN          // Leave the heaters on after Stop Print (not recommended!)
 
   /**
-   * This option allows you to abort SD printing when any endstop is triggered.
-   * This feature must be enabled with "M540 S1" or from the LCD menu.
-   * To have any effect, endstops must be enabled during SD printing.
+   * Abort SD printing when any endstop is triggered.
+   * This feature is enabled with 'M540 S1' or from the LCD menu.
+   * Endstops must be activated for this option to work.
    */
   #define SD_ABORT_ON_ENDSTOP_HIT  // MRiscoC Allows emergency stop of SD printing by hitting any end-stop
 
-  /**
-   * This option makes it easier to print the same SD Card file again.
-   * On print completion the LCD Menu will open with the file selected.
-   * You can just click to start the print, or navigate elsewhere.
-   */
-  //#define SD_REPRINT_LAST_SELECTED_FILE
+  //#define SD_REPRINT_LAST_SELECTED_FILE // On print completion open the LCD Menu and select the same file
 
-  /**
-   * Auto-report SdCard status with M27 S<seconds>
-   */
-  //#define AUTO_REPORT_SD_STATUS
+  //#define AUTO_REPORT_SD_STATUS         // Auto-report media status with 'M27 S<seconds>'
 
   /**
    * Support for USB thumb drives using an Arduino USB Host Shield or
@@ -1626,7 +1616,7 @@
 
   #if ENABLED(BINARY_FILE_TRANSFER)
     // Include extra facilities (e.g., 'M20 F') supporting firmware upload via BINARY_FILE_TRANSFER
-    //#define CUSTOM_FIRMWARE_UPLOAD
+    #define CUSTOM_FIRMWARE_UPLOAD  // MRiscoC Enabled for easy firmware upgrade
   #endif
 
   /**
@@ -2381,18 +2371,18 @@
  */
 #define FWRETRACT  // MRiscoC Enabled support for firmware based retract
 #if ENABLED(FWRETRACT)
-  #define FWRETRACT_AUTORETRACT             // Override slicer retractions
+  //#define FWRETRACT_AUTORETRACT             // Override slicer retractions  // MRiscoC use slicer retract
   #if ENABLED(FWRETRACT_AUTORETRACT)
     #define MIN_AUTORETRACT             0.1 // (mm) Don't convert E moves under this length
     #define MAX_AUTORETRACT            10.0 // (mm) Don't convert E moves over this length
   #endif
-  #define RETRACT_LENGTH                3   // (mm) Default retract length (positive value)
+  #define RETRACT_LENGTH                5   // (mm) Default retract length (positive value)  // MRiscoC Bowden
   #define RETRACT_LENGTH_SWAP          13   // (mm) Default swap retract length (positive value)
-  #define RETRACT_FEEDRATE             45   // (mm/s) Default feedrate for retracting
+  #define RETRACT_FEEDRATE             40   // (mm/s) Default feedrate for retracting  // MRiscoC Bowden
   #define RETRACT_ZRAISE                0   // (mm) Default retract Z-raise
   #define RETRACT_RECOVER_LENGTH        0   // (mm) Default additional recover length (added to retract length on recover)
   #define RETRACT_RECOVER_LENGTH_SWAP   0   // (mm) Default additional swap recover length (added to retract length on recover from toolchange)
-  #define RETRACT_RECOVER_FEEDRATE      8   // (mm/s) Default feedrate for recovering from retraction
+  #define RETRACT_RECOVER_FEEDRATE      40   // (mm/s) Default feedrate for recovering from retraction  // MRiscoC Bowden
   #define RETRACT_RECOVER_FEEDRATE_SWAP 8   // (mm/s) Default feedrate for recovering from swap retraction
   #if ENABLED(MIXING_EXTRUDER)
     //#define RETRACT_SYNC_MIXING           // Retract and restore all mixing steppers simultaneously
