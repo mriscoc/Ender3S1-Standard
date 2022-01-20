@@ -99,7 +99,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_CREALITY_V24S1_301  // Creality Ender 3S1
+  #define MOTHERBOARD BOARD_CREALITY_V24S1_301  // Ender 3S1 v301
 #endif
 
 /**
@@ -837,8 +837,8 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING true        // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
-#define Y_MIN_ENDSTOP_INVERTING true        // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
+#define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
+#define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.  // Ender3S1 Configs
 #define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1038,10 +1038,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN  // Ender3S1 Configs
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+//#define USE_PROBE_FOR_Z_HOMING  // Ender3S1 Configs
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1095,7 +1095,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#define BLTOUCH    // Ender3S1 Configs
+#define BLTOUCH  // Ender3S1 Configs
 
 /**
  * MagLev V4 probe by MDD
@@ -1198,7 +1198,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -37, -39, -3 }  // BLTouch offset for Ender3S1
+#define NOZZLE_TO_PROBE_OFFSET { -37, -39, -3 }  // Ender3S1 Configs
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1462,14 +1462,14 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-#define FILAMENT_RUNOUT_SENSOR    // Ender3S1 Configs
+#define FILAMENT_RUNOUT_SENSOR  // MRiscoC Enabled runout sensor support
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
-  #define FIL_RUNOUT_STATE     HIGH       // Pin state indicating that filament is NOT present.   // Ender3S1 Configs
-  //#define FIL_RUNOUT_PULLUP             // Use internal pullup for filament runout pins.        // Ender3S1 Configs
-  #define FIL_RUNOUT_PULLDOWN             // Use internal pulldown for filament runout pins.      // Ender3S1 Configs   
+  #define FIL_RUNOUT_STATE     HIGH        // Pin state indicating that filament is NOT present.  // Ender3S1 Configs
+  //#define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.  // Ender3S1 Configs
+  #define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.  // Ender3S1 Configs
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
                                           // This is automatically enabled for MIXING_EXTRUDERs.
 
