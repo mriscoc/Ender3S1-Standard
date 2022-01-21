@@ -1,8 +1,8 @@
 /**
  * Enhanced DWIN implementation
  * Author: Miguel A. Risco-Castillo (MRISCOC)
- * version: 3.10.2
- * date: 2022/01/08
+ * version: 3.11.2
+ * date: 2022/01/19
  *
  * Based on the original code provided by Creality
  *
@@ -496,22 +496,13 @@ void Draw_Menu_IntValue(uint16_t bcolor, const uint8_t line, uint8_t iNum, const
   DWINUI::Draw_Int(HMI_data.Text_Color, bcolor, iNum , VALX, MBASE(line) - 1, value);
 }
 
-// The "Back" label is always on the first line
-void Draw_Back_Label() {
-  if (HMI_IsChinese())
-    DWIN_Frame_AreaCopy(1, 129, 72, 156, 84, LBLX, MBASE(0));
-  else
-  #ifdef USE_UNIFIED_DWIN_SET
-    DWIN_Frame_AreaCopy(1, 223, 179, 254, 189, LBLX, MBASE(0));
-  #else
-    DWIN_Frame_AreaCopy(1, 226, 179, 256, 189, LBLX, MBASE(0));
-  #endif
-}
-
 // Draw "Back" line at the top
 void Draw_Back_First(const bool is_sel=true) {
   Draw_Menu_Line(0, ICON_Back);
-  Draw_Back_Label();
+  if (HMI_IsChinese())
+    DWIN_Frame_AreaCopy(1, 129, 72, 156, 84, LBLX, MBASE(0));
+  else
+    DWINUI::Draw_String(LBLX, MBASE(0), GET_TEXT_F(MSG_BACK));
   if (is_sel) Draw_Menu_Cursor(0);
 }
 
@@ -541,8 +532,8 @@ void Popup_window_PauseOrStop() {
          if (select_print.now == PRINT_PAUSE_RESUME) DWIN_Frame_AreaCopy(1, 237, 338, 269, 356, 98, 150);
     else if (select_print.now == PRINT_STOP) DWIN_Frame_AreaCopy(1, 221, 320, 253, 336, 98, 150);
     DWIN_Frame_AreaCopy(1, 220, 304, 264, 319, 130, 150);
-    DWINUI::Draw_Icon(ICON_Confirm_C, 26, 280);
-    DWINUI::Draw_Icon(ICON_Cancel_C, 146, 280);
+    DWINUI::Draw_IconWB(ICON_Confirm_C, 26, 280);
+    DWINUI::Draw_IconWB(ICON_Cancel_C, 146, 280);
     Draw_Select_Highlight(true);
     DWIN_UpdateLCD();
   }
@@ -560,7 +551,7 @@ void Popup_window_PauseOrStop() {
       DWINUI::Draw_Icon(ICON_TempTooLow, 102, 105);
       DWIN_Frame_AreaCopy(1, 103, 371, 136, 386,  69, 240);
       DWIN_Frame_AreaCopy(1, 170, 371, 270, 386, 102, 240);
-      DWINUI::Draw_Icon(ICON_Confirm_C, 86, 280);
+      DWINUI::Draw_IconWB(ICON_Confirm_C, 86, 280);
       DWIN_UpdateLCD();
     }
     else
@@ -684,7 +675,7 @@ void Draw_Print_Labels() {
 }
 
 void Draw_Print_ProgressBar() {
-  DWINUI::Draw_Icon(ICON_Bar, 15, 93);
+  DWINUI::Draw_IconWB(ICON_Bar, 15, 93);
   DWIN_Draw_Rectangle(1, HMI_data.Barfill_Color, 16 + _percent_done * 240 / 100, 93, 256, 113);
   DWINUI::Draw_Int(HMI_data.PercentTxt_Color, HMI_data.Background_Color, 3, 117, 133, _percent_done);
   DWINUI::Draw_String(HMI_data.PercentTxt_Color, 142, 133, F("%"));
@@ -754,7 +745,7 @@ void Draw_PrintDone() {
   Draw_Print_ProgressElapsed();
   Draw_Print_ProgressRemain();
   // show print done confirm
-  DWINUI::Draw_Icon(HMI_IsChinese() ? ICON_Confirm_C : ICON_Confirm_E, 86, 273);
+  DWINUI::Draw_IconWB(HMI_IsChinese() ? ICON_Confirm_C : ICON_Confirm_E, 86, 273);
   DWIN_UpdateLCD();
 }
 
@@ -954,8 +945,6 @@ void HMI_SDCardInit() { card.cdroot(); }
 #endif
 
 void MarlinUI::refresh() { /* Nothing to see here */ }
-
-#define ICON_Folder ICON_More
 
 #if ENABLED(SCROLL_LONG_FILENAMES)
 
@@ -2004,8 +1993,8 @@ void DWIN_Redraw_screen() {
 
   void Draw_Popup_FilamentPurge() {
     DWIN_Draw_Popup(ICON_BLTouch, GET_TEXT_F(MSG_ADVANCED_PAUSE), F("Purge or Continue?"));
-    DWINUI::Draw_Icon(ICON_Confirm_E, 26, 280);
-    DWINUI::Draw_Icon(ICON_Continue_E, 146, 280);
+    DWINUI::Draw_IconWB(ICON_Confirm_E, 26, 280);
+    DWINUI::Draw_IconWB(ICON_Continue_E, 146, 280);
     Draw_Select_Highlight(true);
     DWIN_UpdateLCD();
   }

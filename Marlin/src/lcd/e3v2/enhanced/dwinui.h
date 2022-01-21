@@ -1,8 +1,8 @@
 /**
  * DWIN UI Enhanced implementation
  * Author: Miguel A. Risco-Castillo
- * Version: 3.10.1
- * Date: 2022/01/17
+ * Version: 3.11.1
+ * Date: 2022/01/19
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -51,6 +51,7 @@
 #define ICON_FilSet               ICON_ResumeEEPROM
 #define ICON_FilUnload            ICON_ReadEEPROM
 #define ICON_Flow                 ICON_StepE
+#define ICON_Folder               ICON_More
 #define ICON_FWRetLength          ICON_StepE
 #define ICON_FWRetSpeed           ICON_Setspeed
 #define ICON_FWRetZRaise          ICON_MoveZ
@@ -270,6 +271,13 @@ namespace DWINUI {
   //  x/y: Upper-left point
   inline void Draw_Icon(uint8_t icon, uint16_t x, uint16_t y) {
     DWIN_ICON_Show(ICON, icon, x, y);
+  }
+
+  // Draw an Icon from the library ICON with its background
+  //  icon: Icon ID
+  //  x/y: Upper-left point
+  inline void Draw_IconWB(uint8_t icon, uint16_t x, uint16_t y) {
+    DWIN_ICON_Show(true, false, false, ICON, icon, x, y);
   }
 
   // Draw a positive integer
