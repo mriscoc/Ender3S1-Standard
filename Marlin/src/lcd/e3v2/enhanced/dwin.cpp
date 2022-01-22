@@ -1653,15 +1653,15 @@ void EachMomentUpdate() {
     if (HMI_IsChinese()) {
       DWIN_Frame_AreaCopy(1, 160, 338, 235, 354, 98, 115);
       DWIN_Frame_AreaCopy(1, 103, 321, 271, 335, 52, 167);
-      DWINUI::Draw_Icon(ICON_Cancel_C,    26, 280);
-      DWINUI::Draw_Icon(ICON_Continue_C, 146, 280);
+      DWINUI::Draw_IconWB(ICON_Cancel_C,    26, 280);
+      DWINUI::Draw_IconWB(ICON_Continue_C, 146, 280);
     }
     else {
       DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 70, GET_TEXT_F(MSG_OUTAGE_RECOVERY));
       DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 147, F("It looks like the last"));
       DWINUI::Draw_CenteredString(HMI_data.PopupTxt_Color, 167, F("file was interrupted."));
-      DWINUI::Draw_Icon(ICON_Cancel_E,    26, 280);
-      DWINUI::Draw_Icon(ICON_Continue_E, 146, 280);
+      DWINUI::Draw_IconWB(ICON_Cancel_E,    26, 280);
+      DWINUI::Draw_IconWB(ICON_Continue_E, 146, 280);
     }
     SdFile *dir = nullptr;
     const char * const filename = card.diveToFile(true, dir, recovery.info.sd_filename);
