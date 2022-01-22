@@ -4,8 +4,6 @@
  * version: 3.11.2
  * date: 2022/01/19
  *
- * Based on the original code provided by Creality
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the License, or
