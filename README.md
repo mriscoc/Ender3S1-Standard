@@ -28,7 +28,7 @@ Released versions of this firmware can be found on the [Releases page](https://g
 
 ## Credits
 
-This firmware is maintained by Miguel Risco-Castillo [[@mriscoc](https://github.com/mriscoc)] - Peru  
+This firmware is maintained by Miguel Risco-Castillo [@mriscoc](https://github.com/mriscoc)  
 
 This work would not be possible without the supporters, helpers and betatesters at the **Telegram** group.
 
