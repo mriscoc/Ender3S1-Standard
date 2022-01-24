@@ -51,8 +51,8 @@
   #include "../../lcd/extui/ui_api.h"
 #elif ENABLED(DWIN_CREALITY_LCD)
   #include "../../lcd/e3v2/creality/dwin.h"
-#elif ENABLED(DWIN_CREALITY_LCD_ENHANCED)
-  #include "../../lcd/e3v2/enhanced/dwin.h"
+#elif ENABLED(DWIN_LCD_PROUI)
+  #include "../../lcd/e3v2/proui/dwin.h"
 #endif
 
 #if HAS_L64XX                         // set L6470 absolute position registers to counts

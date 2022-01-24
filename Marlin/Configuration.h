@@ -2808,13 +2808,9 @@
 //=============================================================================
 
 //
-// Ender-3 v2 OEM display. A DWIN display with Rotary Encoder.
+// Ender-3 S1 OEM display. A DWIN display with Rotary Encoder.
 //
-//#define DWIN_CREALITY_LCD           // Creality UI
-#define DWIN_CREALITY_LCD_ENHANCED  // Enhanced UI
-//#define DWIN_CREALITY_LCD_JYERSUI   // Jyers UI by Jacob Myers
-//#define DWIN_MARLINUI_PORTRAIT      // MarlinUI (portrait orientation)
-//#define DWIN_MARLINUI_LANDSCAPE     // MarlinUI (landscape orientation)
+#define DWIN_LCD_PROUI  // Pro UI
 
 //
 // Touch Screen Settings

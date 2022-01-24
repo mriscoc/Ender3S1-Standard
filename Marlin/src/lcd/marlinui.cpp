@@ -48,11 +48,8 @@ MarlinUI ui;
 
 #if ENABLED(DWIN_CREALITY_LCD)
   #include "e3v2/creality/dwin.h"
-#elif ENABLED(DWIN_CREALITY_LCD_ENHANCED)
-  #include "fontutils.h"
-  #include "e3v2/enhanced/dwin.h"
-#elif ENABLED(DWIN_CREALITY_LCD_JYERSUI)
-  #include "e3v2/jyersui/dwin.h"
+#elif ENABLED(DWIN_LCD_PROUI)
+  #include "e3v2/proui/dwin.h"
 #endif
 
 #if ENABLED(LCD_PROGRESS_BAR) && !IS_TFTGLCD_PANEL
@@ -70,7 +67,7 @@ MarlinUI ui;
 constexpr uint8_t epps = ENCODER_PULSES_PER_STEP;
 
 #if HAS_STATUS_MESSAGE
-  #if ENABLED(STATUS_MESSAGE_SCROLLING) && EITHER(HAS_WIRED_LCD, DWIN_CREALITY_LCD_ENHANCED)
+  #if ENABLED(STATUS_MESSAGE_SCROLLING) && EITHER(HAS_WIRED_LCD, DWIN_LCD_PROUI)
     uint8_t MarlinUI::status_scroll_offset; // = 0
   #endif
   char MarlinUI::status_message[MAX_MESSAGE_LENGTH + 1];
@@ -161,7 +158,7 @@ constexpr uint8_t epps = ENCODER_PULSES_PER_STEP;
   bool MarlinUI::lcd_clicked;
 #endif
 
-#if EITHER(HAS_WIRED_LCD, DWIN_CREALITY_LCD_JYERSUI)
+#if HAS_WIRED_LCD
 
   bool MarlinUI::get_blink() {
     static uint8_t blink = 0;
@@ -1504,14 +1501,13 @@ constexpr uint8_t epps = ENCODER_PULSES_PER_STEP;
 
     #endif
 
-    #if ENABLED(STATUS_MESSAGE_SCROLLING) && EITHER(HAS_WIRED_LCD, DWIN_CREALITY_LCD_ENHANCED)
+    #if ENABLED(STATUS_MESSAGE_SCROLLING) && EITHER(HAS_WIRED_LCD, DWIN_LCD_PROUI)
       status_scroll_offset = 0;
       #endif
 
     TERN_(EXTENSIBLE_UI, ExtUI::onStatusChanged(status_message));
     TERN_(DWIN_CREALITY_LCD, DWIN_StatusChanged(status_message));
-    TERN_(DWIN_CREALITY_LCD_ENHANCED, DWIN_CheckStatusMessage());
-    TERN_(DWIN_CREALITY_LCD_JYERSUI, CrealityDWIN.Update_Status(status_message));
+    TERN_(DWIN_LCD_PROUI, DWIN_CheckStatusMessage());
   }
 
   #if ENABLED(STATUS_MESSAGE_SCROLLING)
