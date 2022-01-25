@@ -938,6 +938,9 @@ void make_name_without_ext(char *dst, char *src, size_t maxlen=MENU_CHAR_LIMIT) 
 
 void HMI_SDCardInit() { card.cdroot(); }
 
+// Initialize or re-initialize the LCD
+void MarlinUI::init_lcd() { DWIN_Startup(); }
+
 #if HAS_LCD_BRIGHTNESS
   void MarlinUI::_set_brightness() { DWIN_LCD_Brightness(backlight ? brightness : 0); }
 #endif
