@@ -1198,11 +1198,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -37, -39, -3.25 }  // Ender3S1 Configs
+#define NOZZLE_TO_PROBE_OFFSET { -37, -39, 0 }  // Ender3S1 Configs
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 25  // MRiscoC center probe area
+#define PROBING_MARGIN 40  // MRiscoC center probe area
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (200*60)  // MRiscoC increase travel speed between probes
@@ -2810,7 +2810,7 @@
 //
 // Ender-3 S1 OEM display. A DWIN display with Rotary Encoder.
 //
-#define DWIN_LCD_PROUI  // Pro UI
+  #define DWIN_LCD_PROUI              // MRiscoC ProUI
 
 //
 // Touch Screen Settings
