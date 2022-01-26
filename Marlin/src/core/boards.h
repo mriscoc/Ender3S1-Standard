@@ -349,7 +349,7 @@
 #define BOARD_CREALITY_V452           4049  // Creality v4.5.2 (STM32F103RE)
 #define BOARD_CREALITY_V453           4050  // Creality v4.5.3 (STM32F103RE)
 #define BOARD_CREALITY_V24S1          4051  // Creality v2.4.S1 (STM32F103RE) v101 as found in the Ender 7
-#define BOARD_CREALITY_V24S1_301      4052  // Creality v2.4.S1_301 (STM32F103RCT) as found in the Ender 3 S1
+#define BOARD_CREALITY_V24S1_301      4052  // Creality v2.4.S1_301 (STM32F103RC) as found in the Ender 3 S1
 #define BOARD_TRIGORILLA_PRO          4053  // Trigorilla Pro (STM32F103ZE)
 #define BOARD_FLY_MINI                4054  // FLYmaker FLY MINI (STM32F103RC)
 #define BOARD_FLSUN_HISPEED           4055  // FLSUN HiSpeedV1 (STM32F103VE)

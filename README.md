@@ -13,7 +13,7 @@ Please test this firmware and let us know if it misbehaves in any way. Volunteer
 
 Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Ender3S1/releases).
 
-![](https://raw.githubusercontent.com/mriscoc/Marlin_Ender3v2/Ender3v2-Released/screenshots/main.jpg)
+![](https://raw.githubusercontent.com/mriscoc/Ender3v2/Ender3v2-Released/screenshots/main.jpg)
 
 ## Wiki
  - [How to install the firmware](https://github.com/mriscoc/Ender3S1/wiki/How-to-install-the-firmware)
