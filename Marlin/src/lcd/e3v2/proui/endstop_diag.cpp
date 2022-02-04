@@ -1,8 +1,8 @@
 /**
  * DWIN End Stops diagnostic page
  * Author: Miguel A. Risco-Castillo
- * Version: 1.0.2
- * Date: 2021/11/06
+ * Version: 1.1.2
+ * Date: 2022/01/27
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as

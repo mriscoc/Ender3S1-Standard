@@ -1,8 +1,8 @@
 /**
  * DWIN Print Stats page
  * Author: Miguel A. Risco-Castillo
- * Version: 1.1
- * Date: 2022/01/09
+ * Version: 1.2.0
+ * Date: 2022/01/27
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as

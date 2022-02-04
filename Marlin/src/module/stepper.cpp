@@ -497,6 +497,10 @@ void Stepper::enable_axis(const AxisEnum axis) {
 
 bool Stepper::disable_axis(const AxisEnum axis) {
   mark_axis_disabled(axis);
+
+//MRISCOC workaround: https://github.com/MarlinFirmware/Marlin/issues/23095
+  set_axis_untrusted(axis);
+
   // If all the axes that share the enabled bit are disabled
   const bool can_disable = can_axis_disable(axis);
   if (can_disable) {

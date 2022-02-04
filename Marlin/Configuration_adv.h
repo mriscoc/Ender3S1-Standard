@@ -1357,9 +1357,11 @@
 
 #endif // HAS_MARLINUI_MENU
 
-#if HAS_DISPLAY
+#if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
   #define SOUND_MENU_ITEM   // Add a mute option to the LCD menu  // MRiscoC Enable Sound Menu Item
+#endif
 
+#if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
   // The timeout (in ms) to return to the status screen from sub-menus
   //#define LCD_TIMEOUT_TO_STATUS 15000
 
@@ -2374,7 +2376,7 @@
     #define MIN_AUTORETRACT             0.1 // (mm) Don't convert E moves under this length
     #define MAX_AUTORETRACT            10.0 // (mm) Don't convert E moves over this length
   #endif
-  #define RETRACT_LENGTH                5   // (mm) Default retract length (positive value)  // MRiscoC Bowden
+  #define RETRACT_LENGTH                1   // (mm) Default retract length (positive value)  // MRiscoC Bowden  // MRiscoC Directdrive
   #define RETRACT_LENGTH_SWAP          13   // (mm) Default swap retract length (positive value)
   #define RETRACT_FEEDRATE             40   // (mm/s) Default feedrate for retracting  // MRiscoC Bowden
   #define RETRACT_ZRAISE                0   // (mm) Default retract Z-raise

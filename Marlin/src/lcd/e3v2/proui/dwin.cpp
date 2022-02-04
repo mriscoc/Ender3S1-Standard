@@ -995,8 +995,15 @@ void Draw_SDItem(const uint16_t item, int16_t row=-1) {
 
   // Draw the file/folder with name aligned left
   char str[strlen(name) + 1];
+  uint8_t icon;
   make_name_without_ext(str, name);
-  Draw_Menu_Line(row, card.flag.filenameIsDir ? ICON_Folder : ICON_File, str);
+  if (card.flag.filenameIsDir) {
+    icon = ICON_Folder;
+  } else if (card.flag.filenameIsBin) {
+    icon = ICON_Binary;  
+  } else icon = ICON_File;
+
+  Draw_Menu_Line(row, icon, str);
 }
 
 #if ENABLED(SCROLL_LONG_FILENAMES)
@@ -1331,7 +1338,11 @@ void HMI_SelectFile() {
       HMI_flag.heat_flag = true;
       HMI_flag.print_finish = false;
 
-      card.openAndPrintFile(card.filename);
+      if (card.flag.filenameIsBin) {
+        DWIN_Popup_Confirm(ICON_Error,F("Please, check filenames"),F("Only gcode can be printed"));
+      } else {
+        card.openAndPrintFile(card.filename);
+      }
 
       #if HAS_FAN
         // All fans on for Ender 3 v2 ?
@@ -1765,7 +1776,7 @@ void DWIN_StartHoming() {
   HMI_flag.home_flag = true;
   HMI_SaveProcessID(Homing);
   Title.ShowCaption(GET_TEXT_F(MSG_LEVEL_BED_HOMING));
-  DWIN_Draw_Popup(ICON_BLTouch, GET_TEXT_F(MSG_LEVEL_BED_HOMING), GET_TEXT_F(MSG_PLEASE_WAIT));
+  DWIN_Show_Popup(ICON_BLTouch, GET_TEXT_F(MSG_LEVEL_BED_HOMING), GET_TEXT_F(MSG_PLEASE_WAIT));
 }
 
 void DWIN_CompletedHoming() {
@@ -1970,7 +1981,7 @@ void DWIN_Redraw_screen() {
 
   void DWIN_Popup_Pause(FSTR_P const fmsg, uint8_t button = 0) {
     HMI_SaveProcessID(button ? WaitResponse : NothingToDo);
-    DWIN_Draw_Popup(ICON_BLTouch, GET_TEXT_F(MSG_ADVANCED_PAUSE), fmsg, button);
+    DWIN_Show_Popup(ICON_BLTouch, GET_TEXT_F(MSG_ADVANCED_PAUSE), fmsg, button);
     ui.reset_status(true);
   }
 
