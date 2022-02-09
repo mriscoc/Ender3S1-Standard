@@ -17,7 +17,6 @@ Released versions of this firmware can be found on the [Releases page](https://g
 
 ## Wiki
  - [How to install the firmware](https://github.com/mriscoc/Ender3S1/wiki/How-to-install-the-firmware)
- - [Installing a 3D/BLTouch](https://github.com/mriscoc/Ender3S1/wiki/3D-BLTouch)
  - [Color themes](https://github.com/mriscoc/Ender3S1/wiki/Color-Themes)
  - [How to use with Octoprint](https://github.com/mriscoc/Ender3S1/wiki/Octoprint)
   
