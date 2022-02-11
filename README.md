@@ -1,4 +1,4 @@
-# Professional Firmware for the Creality Ender 3 s1 3D Printer 
+# Standard Firmware for the Creality Ender 3 s1 3D Printer 
 
 ![GitHub](https://img.shields.io/github/license/mriscoc/Ender3S1.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/mriscoc/Ender3S1.svg)
