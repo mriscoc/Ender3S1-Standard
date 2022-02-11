@@ -155,7 +155,7 @@
 //#define MAX31865_IGNORE_INITIAL_FAULTY_READS 10 // Ignore some read faults (keeping the temperature reading) to work around a possible issue (#23439).
 
 //#define MAX31865_WIRE_OHMS_0              0.95f // For 2-wire, set the wire resistances for more accurate readings.
-//#define MAX31865_WIRE_OHMS_1 0.0f
+//#define MAX31865_WIRE_OHMS_1              0.0f
 
 /**
  * Hephestos 2 24V heated bed upgrade kit.
@@ -1327,11 +1327,11 @@
 
 #endif // HAS_MARLINUI_MENU
 
-#if ANY(HAS_DISPLAY, DWIN_CREALITY_LCD_ENHANCED, DWIN_CREALITY_LCD_JYERSUI)
-  //#define SOUND_MENU_ITEM   // Add a mute option to the LCD menu
+#if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
+  #define SOUND_MENU_ITEM   // Add a mute option to the LCD menu  // MRiscoC Enable Sound Menu Item
 #endif
 
-#if EITHER(HAS_DISPLAY, DWIN_CREALITY_LCD_ENHANCED)
+#if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
   // The timeout (in ms) to return to the status screen from sub-menus
   //#define LCD_TIMEOUT_TO_STATUS 15000
 
@@ -1343,13 +1343,13 @@
   #endif
 
   // Scroll a longer status message into view
-  //#define STATUS_MESSAGE_SCROLLING
+  #define STATUS_MESSAGE_SCROLLING  // MRiscoC Allow scrolling of large status messages
 
   // On the Info Screen, display XY with one decimal place when possible
   //#define LCD_DECIMAL_SMALL_XY
 
   // Add an 'M73' G-code to set the current percentage
-  //#define LCD_SET_PROGRESS_MANUALLY
+  #define LCD_SET_PROGRESS_MANUALLY  // MRiscoC Allow display feedback of host printing through GCode M73
 
   // Show the E position (filament used) during printing
   //#define LCD_SHOW_E_TOTAL
@@ -1380,37 +1380,6 @@
     #endif
   #endif
 
-  // Insert a menu for preheating at the top level to allow for quick access
-  //#define PREHEAT_SHORTCUT_MENU_ITEM
-
-#endif // HAS_MARLINUI_MENU
-
-#if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
-  #define SOUND_MENU_ITEM   // Add a mute option to the LCD menu  // MRiscoC Enable Sound Menu Item
-#endif
-
-#if EITHER(HAS_DISPLAY, DWIN_LCD_PROUI)
-  // The timeout (in ms) to return to the status screen from sub-menus
-  //#define LCD_TIMEOUT_TO_STATUS 15000
-
-  #if ENABLED(SHOW_BOOTSCREEN)
-    #define BOOTSCREEN_TIMEOUT 4000      // (ms) Total Duration to display the boot screen(s)
-    #if EITHER(HAS_MARLINUI_U8GLIB, TFT_COLOR_UI)
-      #define BOOT_MARLIN_LOGO_SMALL     // Show a smaller Marlin logo on the Boot Screen (saving lots of flash)
-    #endif
-  #endif
-
-  // Scroll a longer status message into view
-  #define STATUS_MESSAGE_SCROLLING  // MRiscoC Allow scrolling of large status messages
-
-  // On the Info Screen, display XY with one decimal place when possible
-  //#define LCD_DECIMAL_SMALL_XY
-
-  // Add an 'M73' G-code to set the current percentage
-  #define LCD_SET_PROGRESS_MANUALLY  // MRiscoC Allow display feedback of host printing through GCode M73
-
-  // Show the E position (filament used) during printing
-  //#define LCD_SHOW_E_TOTAL
 #endif
 
 // LCD Print Progress options
@@ -3987,10 +3956,13 @@
  */
 #define HOST_ACTION_COMMANDS  // MRiscoC Enabled actions from host
 #if ENABLED(HOST_ACTION_COMMANDS)
-  //#define HOST_PAUSE_M76
-  #define HOST_PROMPT_SUPPORT  // MRiscoC Enabled responses from host
-  //#define HOST_START_MENU_ITEM      // Add a menu item that tells the host to start
-  //#define HOST_SHUTDOWN_MENU_ITEM   // Add a menu item that tells the host to shut down
+  //#define HOST_PAUSE_M76                // Tell the host to pause in response to M76
+  #define HOST_PROMPT_SUPPORT           // Initiate host prompts to get user feedback  // MRiscoC Enabled responses from host
+  #if ENABLED(HOST_PROMPT_SUPPORT)
+    //#define HOST_STATUS_NOTIFICATIONS   // Send some status messages to the host as notifications
+  #endif
+  //#define HOST_START_MENU_ITEM          // Add a menu item that tells the host to start
+  //#define HOST_SHUTDOWN_MENU_ITEM       // Add a menu item that tells the host to shut down
 #endif
 
 /**
