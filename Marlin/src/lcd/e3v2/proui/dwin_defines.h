@@ -81,7 +81,7 @@
 #ifndef HAS_LCD_BRIGHTNESS
   #define HAS_LCD_BRIGHTNESS 1
 #endif
-#define DEFAULT_LCD_BRIGHTNESS 127
+#define LCD_BRIGHTNESS_DEFAULT 127
 
 typedef struct {
 // Color settings
