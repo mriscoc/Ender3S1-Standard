@@ -25,16 +25,6 @@
 #include "../common/dwin_font.h"
 #include "../common/dwin_color.h"
 
-// ICON ID
-
-//#define USE_UNIFIED_DWIN_SET            // Official Marlin DWIN_SET
-#ifndef USE_UNIFIED_DWIN_SET
-  #ifdef ICON
-    #undef ICON
-  #endif
-  #define ICON                    0x09  // Default Creality DWIN_SET
-#endif
-
 // Extra Icons
 #define ICON_AdvSet               ICON_Language
 #define ICON_BedSizeX             ICON_PrintSize
@@ -104,6 +94,8 @@
 #define ICON_SetBaudRate          ICON_Setspeed
 #define ICON_SetCustomPreheat     ICON_SetEndTemp
 #define ICON_Sound                ICON_Cool
+#define ICON_CaseLight            ICON_Motion
+#define ICON_LedControl           ICON_Motion
 
 // Extended and default UI Colors
 #define Color_Black           0
