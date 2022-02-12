@@ -3678,7 +3678,7 @@ void Temperature::isr() {
         #if HAS_MULTI_HOTEND
           F("E%c " S_FMT), '1' + e
         #else
-          F("Nozzle " S_FMT)
+          F("Nozzle " S_FMT) // MSG_NOZZLE
         #endif
         , heating ? GET_TEXT(MSG_HEATING) : GET_TEXT(MSG_COOLING)
       );

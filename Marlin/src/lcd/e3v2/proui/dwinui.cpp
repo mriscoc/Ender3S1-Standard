@@ -51,7 +51,7 @@ void (*DWINUI::onMenuDraw)(MenuClass* menu)=nullptr;
 
 void DWINUI::init() {
   DEBUG_ECHOPGM("\r\nDWIN handshake ");
-  delay(750);   // Delay here or init later in the boot process
+  delay(750);   // Delay for wait to wakeup screen
   const bool success = DWIN_Handshake();
   if (success) DEBUG_ECHOLNPGM("ok."); else DEBUG_ECHOLNPGM("error.");
   DWIN_Frame_SetDir(1);
