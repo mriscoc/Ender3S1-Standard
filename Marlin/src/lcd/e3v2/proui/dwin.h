@@ -83,7 +83,6 @@ enum pidresult_t : uint8_t {
 
 typedef struct {
   int8_t Color[3];                    // Color components
-  uint16_t pidgrphpoints  = 0;
   pidresult_t pidresult   = PID_DONE;
   int8_t Preheat          = 0;        // Material Select 0: PLA, 1: ABS, 2: Custom
   AxisEnum axis           = X_AXIS;   // Axis Select
