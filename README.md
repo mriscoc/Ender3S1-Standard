@@ -21,7 +21,7 @@ Released versions of this firmware can be found on the [Releases page](https://g
  - [How to use with Octoprint](https://github.com/mriscoc/Ender3S1/wiki/Octoprint)
   
 ## Community links
-* Telegram
+* [Telegram](https://t.me/ender3v2s1firmware)
 * [Reddit](https://www.reddit.com/r/Ender3v2Firmware) 
 * [Facebook](https://www.facebook.com/groups/ender3s1printer)
 
