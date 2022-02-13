@@ -1401,14 +1401,14 @@
 // @section machine
 
 // The size of the printable area
-#define X_BED_SIZE 225  // MRiscoC Max usable bed size  // MRiscoC Max usable bed size
-#define Y_BED_SIZE 225  // MRiscoC Max usable bed size  // MRiscoC Max usable bed size
+#define X_BED_SIZE 220  // MRiscoC Max usable bed size  // MRiscoC Max usable bed size
+#define Y_BED_SIZE 220  // MRiscoC Max usable bed size  // MRiscoC Max usable bed size
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -5  // MRiscoC Stock physical limit
 #define Y_MIN_POS -5  // MRiscoC Stock physical limit
 #define Z_MIN_POS 0
-#define X_MAX_POS 230  // MRiscoC Stock physical limit
+#define X_MAX_POS 225  // MRiscoC Stock physical limit
 #define Y_MAX_POS 225  // MRiscoC Stock physical limit
 #define Z_MAX_POS 270  // Ender3S1 Configs
 //#define I_MIN_POS 0
