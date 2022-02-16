@@ -1,4 +1,4 @@
-# Standard Firmware for the Creality Ender 3 s1 3D Printer 
+# Standard Firmware for the Creality Ender 3S1 3D Printer 
 
 ![GitHub](https://img.shields.io/github/license/mriscoc/Ender3S1.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/mriscoc/Ender3S1.svg)
@@ -9,7 +9,7 @@
 
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
 
-## Download a compilated version of this firmware
+## Download a compiled version of this firmware
 
 Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Ender3S1/releases).
 
