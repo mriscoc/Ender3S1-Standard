@@ -9,7 +9,7 @@
 
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
 
-## Download a compilated version of this firmware
+## Download a compiled version of this firmware
 
 Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Ender3S1/releases).
 
