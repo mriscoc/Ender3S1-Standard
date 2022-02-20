@@ -1,8 +1,8 @@
 /**
  * DWIN Mesh Viewer
  * Author: Miguel A. Risco-Castillo
- * Version: 3.9.1
- * Date: 2021/11/09
+ * version: 3.11.1
+ * Date: 2022/02/17
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -20,9 +20,14 @@
  */
 #pragma once
 
+#include "../../../core/types.h"
+#include "../../../feature/bedlevel/bedlevel.h"
+
 class MeshViewerClass {
 public:
+  float avg, max, min;
   void Draw();
+  void DrawMesh(bed_mesh_t zval, const uint8_t sizex, const uint8_t sizey);
 };
 
 extern MeshViewerClass MeshViewer;

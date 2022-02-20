@@ -820,7 +820,7 @@ void idle(bool no_stepper_sleep/*=false*/) {
   TERN_(USE_BEEPER, buzzer.tick());
 
   // Handle UI input / draw events
-  TERN(HAS_DWIN_E3V2_BASIC, DWIN_Update(), ui.update());
+  TERN(DWIN_CREALITY_LCD, DWIN_Update(), ui.update());
 
   // Run i2c Position Encoders
   #if ENABLED(I2C_POSITION_ENCODERS)

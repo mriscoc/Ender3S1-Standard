@@ -1,8 +1,8 @@
 /**
  * DWIN general defines and data structs
  * Author: Miguel A. Risco-Castillo
- * Version: 3.9.2
- * Date: 2021/11/21
+ * Version: 3.10.2
+ * Date: 2022/02/02
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 
@@ -21,8 +21,8 @@
 
 #pragma once
 
-//#define NEED_HEX_PRINT 1
 //#define DEBUG_DWIN 1
+//#define NEED_HEX_PRINT 1
 
 #include "../../../core/types.h"
 #include "../common/dwin_color.h"
@@ -49,21 +49,6 @@
 #define Def_Indicator_Color   Color_White
 #define Def_Coordinate_Color  Color_White
 
-#define X_BED_MIN 150
-#define Y_BED_MIN 150
-#define DEF_X_BED_SIZE X_BED_SIZE
-#define DEF_Y_BED_SIZE Y_BED_SIZE
-#define DEF_X_MAX_POS X_MAX_POS
-#define DEF_Y_MAX_POS Y_MAX_POS
-#define DEF_Z_MAX_POS Z_MAX_POS
-#define DEF_FIL_RUNOUT1_STATE FIL_RUNOUT_STATE
-#define DEF_NOZZLE_PARK_POINT {240, 220, 20}
-#define SOUND_MENU_ITEM
-#if HAS_MESH
-  #define DEF_GRID_MAX_POINTS GRID_MAX_POINTS_X
-  #define GRID_LIMIT 9
-#endif
-
 //#define HAS_GCODE_PREVIEW 1
 #define HAS_ESDIAG 1
 #ifndef INDIVIDUAL_AXIS_HOMING_SUBMENU
@@ -82,6 +67,9 @@
   #define HAS_LCD_BRIGHTNESS 1
 #endif
 #define LCD_BRIGHTNESS_DEFAULT 127
+#ifndef SOUND_MENU_ITEM
+  #define SOUND_MENU_ITEM
+#endif
 
 typedef struct {
 // Color settings
@@ -107,7 +95,7 @@ typedef struct {
   #if HAS_HOTEND && defined(PREHEAT_1_TEMP_HOTEND)
     int16_t HotendPidT = PREHEAT_1_TEMP_HOTEND;
   #endif
-  #if HAS_HEATED_BED && defined(PREHEAT_1_TEMP_BED)
+  #if defined(PREHEAT_1_TEMP_BED)
     int16_t BedPidT = PREHEAT_1_TEMP_BED;
   #endif
   #if HAS_HOTEND || HAS_HEATED_BED
@@ -116,6 +104,11 @@ typedef struct {
   #if ENABLED(PREVENT_COLD_EXTRUSION)
     int16_t ExtMinT = EXTRUDE_MINTEMP;
   #endif
+    #if ENABLED(PREHEAT_BEFORE_LEVELING) && defined(PREHEAT_1_TEMP_BED)
+    int16_t BedLevT = PREHEAT_1_TEMP_BED;
+  #endif
+  TERN_(BAUD_RATE_GCODE, bool Baud115K = false);
+  bool FullManualTramming = false;
   // Led
   #if BOTH(LED_CONTROL_MENU, HAS_COLOR_LEDS)
     LEDColor Led_Color = Def_Leds_Color;
@@ -128,3 +121,8 @@ typedef struct {
 
 static constexpr size_t eeprom_data_size = 64;
 extern HMI_data_t HMI_data;
+
+#if PREHEAT_1_TEMP_BED
+  #undef LEVELING_BED_TEMP
+  #define LEVELING_BED_TEMP HMI_data.BedLevT
+#endif

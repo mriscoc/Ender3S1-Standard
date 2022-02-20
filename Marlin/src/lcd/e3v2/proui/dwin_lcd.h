@@ -1,8 +1,8 @@
 /**
  * DWIN UI Enhanced implementation
  * Author: Miguel A. Risco-Castillo
- * Version: 3.8.1
- * Date: 2021/11/09
+ * Version: 3.9.1
+ * Date: 2022/02/08
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 
@@ -22,6 +22,24 @@
 #pragma once
 
 #include "../common/dwin_api.h"
+
+// Draw a numeric value
+//  bShow: true=display background color; false=don't display background color
+//  zeroFill: true=zero fill; false=no zero fill
+//  signedMode: 1=signed; 0=unsigned
+//  zeroMode: 1=leading 0 displayed as 0; 0=leading 0 displayed as a space
+//  size: Font size
+//  color: Character color
+//  bColor: Background color
+//  iNum: Number of digits
+//  fNum: Number of decimal digits
+//  x/y: Upper-left coordinate
+//  value: Integer value
+void DWIN_Draw_Value(uint8_t bShow, bool signedMode, bool zeroFill, uint8_t zeroMode, uint8_t size, uint16_t color,
+                          uint16_t bColor, uint8_t iNum, uint8_t fNum, uint16_t x, uint16_t y, int32_t value);
+//  value: positive unscaled float value
+void DWIN_Draw_Value(uint8_t bShow, bool signedMode, bool zeroFill, uint8_t zeroMode, uint8_t size, uint16_t color,
+                          uint16_t bColor, uint8_t iNum, uint8_t fNum, uint16_t x, uint16_t y, float value);
 
 // Display QR code
 //  The size of the QR code is (46*QR_Pixel)*(46*QR_Pixel) dot matrix

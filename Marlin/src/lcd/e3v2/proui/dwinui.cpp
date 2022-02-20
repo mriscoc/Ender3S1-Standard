@@ -1,8 +1,8 @@
 /**
  * DWIN UI Enhanced implementation
  * Author: Miguel A. Risco-Castillo
- * Version: 3.8.2
- * Date: 2021/11/09
+ * Version: 3.13.1
+ * Date: 2022/02/08
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -43,6 +43,7 @@ uint16_t DWINUI::pencolor = Color_White;
 uint16_t DWINUI::textcolor = Def_Text_Color;
 uint16_t DWINUI::backcolor = Def_Background_Color;
 uint8_t  DWINUI::font = font8x16;
+FSTR_P const DWINUI::Author = F(STRING_CONFIG_H_AUTHOR);
 
 void (*DWINUI::onCursorErase)(const int8_t line)=nullptr;
 void (*DWINUI::onCursorDraw)(const int8_t line)=nullptr;
@@ -174,21 +175,6 @@ void DWINUI::Draw_String(const char * const string, uint16_t rlimit) {
 void DWINUI::Draw_String(uint16_t color, const char * const string, uint16_t rlimit) {
   DWIN_Draw_String(false, font, color, backcolor, cursor.x, cursor.y, string, rlimit);
   MoveBy(strlen(string) * fontWidth(font), 0);
-}
-
-// Draw a signed floating point number
-//  bShow: true=display background color; false=don't display background color
-//  zeroFill: true=zero fill; false=no zero fill
-//  zeroMode: 1=leading 0 displayed as 0; 0=leading 0 displayed as a space
-//  size: Font size
-//  bColor: Background color
-//  iNum: Number of whole digits
-//  fNum: Number of decimal digits
-//  x/y: Upper-left point
-//  value: Float value
-void DWINUI::Draw_Signed_Float(uint8_t bShow, bool zeroFill, uint8_t zeroMode, uint8_t size, uint16_t color, uint16_t bColor, uint8_t iNum, uint8_t fNum, uint16_t x, uint16_t y, float value) {
-  DWIN_Draw_FloatValue(bShow, zeroFill, zeroMode, size, color, bColor, iNum, fNum, x, y, value < 0 ? -value : value);
-  DWIN_Draw_String(bShow, size, color, bColor, x - 8, y, value < 0 ? F("-") : F(" "));
 }
 
 // Draw a circle

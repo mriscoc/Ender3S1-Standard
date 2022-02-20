@@ -1,8 +1,8 @@
 /**
  * Enhanced DWIN implementation
  * authors: Miguel A. Risco-Castillo (MRISCOC)
- * version: 3.9.2
- * date: 2021/11/21
+ * Version: 3.14.2
+ * Date: 2022/02/19
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -86,14 +86,6 @@ typedef struct {
   pidresult_t pidresult   = PID_DONE;
   int8_t Preheat          = 0;        // Material Select 0: PLA, 1: ABS, 2: Custom
   AxisEnum axis           = X_AXIS;   // Axis Select
-  int32_t MaxValue        = 0;        // Auxiliar max integer/scaled float value
-  int32_t MinValue        = 0;        // Auxiliar min integer/scaled float value
-  int8_t dp               = 0;        // Auxiliar decimal places
-  int32_t Value           = 0;        // Auxiliar integer / scaled float value
-  int16_t *P_Int          = nullptr;  // Auxiliar pointer to 16 bit integer variable
-  float *P_Float          = nullptr;  // Auxiliar pointer to float variable
-  void (*Apply)()         = nullptr;  // Auxiliar apply function
-  void (*LiveUpdate)()    = nullptr;  // Auxiliar live update function
 } HMI_value_t;
 
 typedef struct {
@@ -132,7 +124,7 @@ void Goto_Main_Menu();
 void Goto_Info_Menu();
 void Goto_PowerLossRecovery();
 void Goto_ConfirmToPrint();
-void Draw_Status_Area(const bool with_update); // Status Area
+void DWIN_Draw_Dashboard(const bool with_update); // Status Area
 void Draw_Main_Area();      // Redraw main area;
 void DWIN_Redraw_screen();  // Redraw all screen elements
 void HMI_StartFrame(const bool with_update);   // Prepare the menu view
@@ -141,6 +133,11 @@ void HMI_SelectFile();      // File page
 void HMI_Printing();        // Print page
 void HMI_ReturnScreen();    // Return to previous screen before popups
 void ApplyExtMinT();
+void RebootPrinter();
+#if ENABLED(BAUD_RATE_GCODE)
+  void SetBaud115K();
+  void SetBaud250K();
+#endif
 void HMI_SetLanguageCache(); // Set the languaje image cache
 
 void HMI_Init();
@@ -162,20 +159,24 @@ void DWIN_CompletedLeveling();
 void DWIN_PidTuning(pidresult_t result);
 void DWIN_Print_Started(const bool sd = false);
 void DWIN_Print_Finished();
+void DWIN_Print_Aborted();
 #if HAS_FILAMENT_SENSOR
   void DWIN_FilamentRunout(const uint8_t extruder);
 #endif
 void DWIN_Progress_Update();
 void DWIN_Print_Header(const char *text);
 void DWIN_SetColorDefaults();
+void DWIN_ApplyColor();
+void DWIN_ApplyColor(const int8_t element, const bool ldef = false);
 void DWIN_StoreSettings(char *buff);
 void DWIN_LoadSettings(const char *buff);
 void DWIN_SetDataDefaults();
 void DWIN_RebootScreen();
 
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
+  void DWIN_Popup_Pause(FSTR_P const fmsg, uint8_t button = 0);
   void Draw_Popup_FilamentPurge();
-  void DWIN_Popup_FilamentPurge();
+  void Goto_FilamentPurge();
   void HMI_FilamentPurge();
 #endif
 
@@ -195,14 +196,6 @@ void HMI_LockScreen();
 #if ENABLED(PRINTCOUNTER)
   void Draw_PrintStats();
 #endif
-
-// HMI user control functions
-void HMI_Menu();
-void HMI_SetInt();
-void HMI_SetPInt();
-void HMI_SetIntNoDraw();
-void HMI_SetFloat();
-void HMI_SetPFloat();
 
 // Menu drawing functions
 void Draw_Control_Menu();
