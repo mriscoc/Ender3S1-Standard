@@ -46,7 +46,7 @@
 #define MEDIA_TYPE_EN "Media"
 
 namespace Language_en {
-  constexpr uint8_t    CHARSIZE                            = 2;
+  constexpr uint8_t CHARSIZE              = 2;
   LSTR LANGUAGE                           = _UxGT("English");
 
   // These strings should be translated

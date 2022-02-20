@@ -188,13 +188,13 @@ void DWIN_SRAMToPic(uint8_t picID) {
 //--------------------------Test area -------------------------
 
 //void DWIN_ReadSRAM(uint16_t addr, uint8_t length, const char * const data) {
-//   size_t i = 0;
-//   DWIN_Byte(i, 0x32);
-//   DWIN_Byte(i, 0x5A);  // 0x5A Read from SRAM - 0xA5 Read from Flash
-//   DWIN_Word(i, addr);  // 0x0000 to 0x7FFF
-//   const size_t len = _MIN(0xF0, length);
-//   DWIN_Byte(i, len);
-//   DWIN_Send(i);
+//  size_t i = 0;
+//  DWIN_Byte(i, 0x32);
+//  DWIN_Byte(i, 0x5A);  // 0x5A Read from SRAM - 0xA5 Read from Flash
+//  DWIN_Word(i, addr);  // 0x0000 to 0x7FFF
+//  const size_t len = _MIN(0xF0, length);
+//  DWIN_Byte(i, len);
+//  DWIN_Send(i);
 //}
 
 #endif // DWIN_LCD_PROUI

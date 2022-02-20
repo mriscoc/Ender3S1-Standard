@@ -2517,11 +2517,11 @@ void TramC () { Tram(4); }
 
 #if HAS_ONESTEP_LEVELING
   void Trammingwizard() {
+    bed_mesh_t zval = {0};
     if (HMI_data.FullManualTramming) {
       ui.set_status(F("Disable manual tramming"));
       return;
     }
-    bed_mesh_t zval = {0};
     zval[0][0] = Tram(0);
     checkkey = NothingToDo;
     MeshViewer.DrawMesh(zval, 2, 2);
@@ -2537,13 +2537,30 @@ void TramC () { Tram(4); }
       dtostrf(MeshViewer.max, 1, 2, str_2)
     );
     if (ABS(MeshViewer.max - MeshViewer.min) < 0.05) {
-      DWINUI::Draw_CenteredString(130,F("Corners leveled"));
-      DWINUI::Draw_CenteredString(150,F("Tolerance achieved!"));
+      DWINUI::Draw_CenteredString(140,F("Corners leveled"));
+      DWINUI::Draw_CenteredString(160,F("Tolerance achieved!"));
     } else {
-      DWINUI::Draw_CenteredString(130,F("Corners not leveled"));
-      DWINUI::Draw_CenteredString(150,F("Knob adjustment required"));
+      uint8_t p = 0;
+      float d, max = 0;
+      FSTR_P plabel;
+      LOOP_L_N(x,2) LOOP_L_N(y,2) {
+        d = ABS(zval[x][y] - MeshViewer.avg);
+        if (max < d) {
+          max = d;
+          p = x + 2 * y;
+        }
+      }
+      switch (p) {
+        case 0b00 : plabel = GET_TEXT_F(MSG_LEVBED_FL); break;
+        case 0b01 : plabel = GET_TEXT_F(MSG_LEVBED_FR); break;
+        case 0b10 : plabel = GET_TEXT_F(MSG_LEVBED_BL); break;
+        case 0b11 : plabel = GET_TEXT_F(MSG_LEVBED_BR); break;
+        default   : plabel = F(""); break;
+      }
+      DWINUI::Draw_CenteredString(130, F("Corners not leveled"));
+      DWINUI::Draw_CenteredString(150, F("Knob adjustment required"));
+      DWINUI::Draw_CenteredString(Color_Green, 170, plabel);
     }
-//    LOOP_L_N(x,1) LOOP_L_N(y,1) 
     DWINUI::Draw_IconWB(ICON_Continue_E, 86, 305);
     checkkey = Menu;
     HMI_SaveProcessID(WaitResponse);

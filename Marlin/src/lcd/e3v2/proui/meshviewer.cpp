@@ -57,7 +57,7 @@ void MeshViewerClass::DrawMesh(bed_mesh_t zval, const uint8_t sizex, const uint8
   }
   max = (float)maxz / 100;
   min = (float)minz / 100;
-  avg = avg / (sizex * sizey);
+  avg = avg / (100 * sizex * sizey);
   DWINUI::ClearMenuArea();
   DWIN_Draw_Rectangle(0, HMI_data.SplitLine_Color, px(0), py(0), px(sizex - 1), py(sizey - 1));
   LOOP_S_L_N(x, 1, sizex - 1) DrawMeshVLine(x);
@@ -74,19 +74,19 @@ void MeshViewerClass::DrawMesh(bed_mesh_t zval, const uint8_t sizex, const uint8
         char str_1[9];
         str_1[0] = 0;
         switch (zmesh[x][y]) {
-          case -999 ... -100: 
+          case -999 ... -100:
             DWINUI::Draw_Signed_Float(font6x12, 1, 1, px(x) - 18, py(y) - 6, zval[x][y]);
             break;
-          case -99 ... -1: 
+          case -99 ... -1:
             sprintf_P(str_1, PSTR("-.%02i"), -zmesh[x][y]);
             break;
           case 0:
             DWIN_Draw_String(false, font6x12, DWINUI::textcolor, DWINUI::backcolor, px(x) - 4, py(y) - 6, "0");;
             break;
-          case 1 ... 99: 
+          case 1 ... 99:
             sprintf_P(str_1, PSTR(".%02i"), zmesh[x][y]);
             break;
-          case 100 ... 999: 
+          case 100 ... 999:
             DWINUI::Draw_Signed_Float(font6x12, 1, 1, px(x) - 18, py(y) - 6, zval[x][y]);
             break;
         }
