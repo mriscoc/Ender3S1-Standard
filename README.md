@@ -19,7 +19,12 @@ Released versions of this firmware can be found on the [Releases page](https://g
  - [How to install the firmware](https://github.com/mriscoc/Ender3S1/wiki/How-to-install-the-firmware)
  - [Color themes](https://github.com/mriscoc/Ender3S1/wiki/Color-Themes)
  - [How to use with Octoprint](https://github.com/mriscoc/Ender3S1/wiki/Octoprint)
-  
+
+## Donations
+Thank you for your support, I receive donations through [Patreon](https://www.patreon.com/mriscoc) and [Paypal](https://www.paypal.com/paypalme/mriscoc)   
+
+[<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif">](https://www.paypal.com/donate?business=85SPAAR6UZEE8&currency_code=USD)
+
 ## Community links
 * [Telegram](https://t.me/ender3v2s1firmware)
 * [Reddit](https://www.reddit.com/r/Ender3v2Firmware) 
