@@ -7,18 +7,9 @@
 
 <img align="right" width=200 src="buildroot/share/pixmaps/Ender3s1.jpg" />
 
-Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
-
-## Download a compiled version of this firmware
-
-Released versions of this firmware can be found on the [Releases page](https://github.com/mriscoc/Ender3S1/releases).
+The latest and more complete version in now available at: https://github.com/mriscoc/Ender3V2S1/releases/latest  
 
 ![](https://raw.githubusercontent.com/mriscoc/Ender3v2/Ender3v2-Released/screenshots/main.jpg)
-
-## Wiki
- - [How to install the firmware](https://github.com/mriscoc/Ender3S1/wiki/How-to-install-the-firmware)
- - [Color themes](https://github.com/mriscoc/Ender3S1/wiki/Color-Themes)
- - [How to use with Octoprint](https://github.com/mriscoc/Ender3S1/wiki/Octoprint)
 
 ## Donations
 Thank you for your support, I receive donations through [Patreon](https://www.patreon.com/mriscoc) and [Paypal](https://www.paypal.com/paypalme/mriscoc)   
